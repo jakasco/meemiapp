@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+
+    </style>
+  </head>
+  <body>
+
+  <h1>CREATE NEW ACCOUNT</h1>
+
+  <form method="get" action="/send" id="form1" onsubmit="return testPassword()">
+    Username: <input type="text" name="user" id="us"><br>
+    E-mail address: <input type="text" name="email"><br>
+    Password: <input type="text" name="pw" id="pw1"><br>
+    Re-type Password: <input type="text" name="pw" id="pw2"><br>
+  </form>
+
+  <button type="submit" form="form1" value="Submit" >Create</button>
+
+  <h1>LOG IN</h1>
+
+  <form method="get" action="/profile" id="form2">
+    Username: <input type="text" name="user"><br>
+    Password: <input type="text" name="pw"><br>
+  </form>
+
+  <button type="submit" form="form2" value="Submit">Login</button>
+  <br>
+	</div>
+
+  <div id="tags" style="height:200px; width: 100px; overflow: scroll;">
+    <button onclick="addTag()">Add</button>
+    tag name: <input type="text" name="tag" id="tagInput">
+    <in
+  </div>
+
+	<script>
+
+  const pass1 = document.getElementById("pw1");
+  const pass2 = document.getElementById("pw2");
+  const user = document.getElementById("us");
+
+  function testPassword(){
+    //jos salasanat täsmäävät
+    if(pass1.value==pass2.value ){
+      if(user.value != "" ){
+        //mahdollistetaan submittaaminen nodeen
+        return true;
+      }else{
+        alert("Empty username!")
+        return false;
+      }
+    }else{
+      alert("Passwords don't match!");
+      pass1.value = "";
+      pass2.value = "";
+      return false;
+    }
+  }
+
+  const tags = document.getElementById("tags");
+  const input = document.getElementById("tagInput")
+  function addTag(){
+
+    let t = document.createElement('div');
+    let val = input.value;
+    t.innerHTML = "<div style='height: 20px; width: 20px; border solid 1px'>"+val+"<button onclick='deleteThis()'>x</button></div>";
+    tags.append(t);
+
+  }
+
+	</script>
+  </body>
+</html>

@@ -1,0 +1,165 @@
+h1{
+    text-align: center;
+    color: white;
+    margin: 0;
+    padding-top: 30px;
+    border: 0;
+    height: 20%;
+}
+h2{
+    color: white;
+}
+
+h3{
+    padding-left: 35px;
+}
+.container2{
+    text-align: center;
+
+}
+#otsikko{
+    background-color: #203A43;
+    font-family: Arial;
+}
+
+.omakuva{
+    display: block;
+    margin-left: 25%;
+    margin-right: auto;
+    width: 1200px;
+    height: 800px;
+
+}
+
+img{
+    width: 1200px;
+    height: 800px;
+
+}
+
+.sivupalkki{
+
+
+    height:100%;
+    width:10%;
+    background-color:#203A43;
+    position:fixed!important;
+
+    overflow:auto;
+
+
+
+}
+
+.sivupalkki a {
+
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+
+}
+.sivupalkki a:hover {
+    color: #f1f1f1;
+}
+
+
+body{
+   background-image: linear-gradient(#0F2027, #203A43, #2C5364);
+
+    color: white;
+    font-family: Arial;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+
+}
+
+.kommenttikentta{
+    text-align: center;
+    list-style-type: none;
+    padding-right: 50%;
+}
+li{
+    list-style-type: none;
+
+
+}
+#upload{
+
+    border-radius: 12px;
+    background-color: #2C5364;
+    Color: white;
+    cursor: pointer;
+}
+#myBtn{
+    position: absolute;
+    top: 10%;
+    left: 93%;
+    border-radius: 12px;
+    background-color: #2C5364;
+    Color: white;
+    cursor: pointer;
+}
+#nappi2{
+    position: absolute;
+    top: 10%;
+    left: 96%;
+    border-radius: 12px;
+    background-color: #2C5364;
+    Color: white;
+    cursor: pointer;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #203A43;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 25%; /* Could be more or less, depending on screen size */
+
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+#gridi{
+    display: grid;
+    grid-template: auto;
+    justify-items: left;
+}
+
+.container{
+    height: 100px;
+    width: 100%;
+}
+
+

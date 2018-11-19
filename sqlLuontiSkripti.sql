@@ -18,15 +18,44 @@ CREATE TABLE kayttaja
   PRIMARY KEY (kayttaja_id)
 );
 
+drop table if exists ei_kirjautunut_kayttaja;
+CREATE TABLE ei_kirjautunut_kayttaja
+(
+  ip VARCHAR(20)
+);
+
 drop table if exists kuvat;
 CREATE TABLE kuvat
 (
   kuva_id INT NOT NULL,
   kayttaja_id INT NOT NULL,
+  URL VARCHAR(50),
   kuva_teksti VARCHAR(50),
   views INT,
   PRIMARY KEY (kuva_id),
   tykkaykset INT
+);
+
+drop table if exists views;
+CREATE TABLE views
+(
+  kuva_id INT NOT NULL,
+  kayttaja_id INT,
+  ei_kirjautunut_kayttaja INT
+);
+
+drop table if exists tags;
+CREATE TABLE tags
+(
+  kuva_id INT NOT NULL,
+  tag_name VARCHAR(20) NOT NULL
+);
+
+drop table if exists asetukset;
+CREATE TABLE asetukset
+(
+  kayttaja_id INT NOT NULL,
+  theme VARCHAR(20)
 );
 
 drop table if exists kommentit;
@@ -34,7 +63,8 @@ CREATE TABLE kommentit
 (
   kuva_id INT NOT NULL,
   kayttaja_id INT NOT NULL,
-  kommentti VARCHAR(100)
+  kommentti VARCHAR(100),
+  reported INT
 );
 
 drop table if exists tykkaykset;
@@ -42,15 +72,24 @@ CREATE TABLE tykkaykset
 (
   kuva_id INT NOT NULL,
   kayttaja_id INT NOT NULL,
-  tykkays INT
+  tykkaa INT,
+  ala_tykkaa INT
 );
 
+drop table if exists private_message;
+CREATE TABLE private_message
+(
+  kayttaja_id_lahettaja INT NOT NULL,
+  kayttaja_id_vastaanottaja INT NOT NULL,
+  viesti VARCHAR (300)
+);
 
 drop table if exists asetukset;
 CREATE TABLE asetukset
 (
   kayttaja_id INT NOT NULL,
-  yksityinen BIT,
+  yksityinen INT,
+  theme VARCHAR(20),
   PRIMARY KEY (kayttaja_id)
 );
 
@@ -62,7 +101,7 @@ INSERT INTO kuvat VALUES(1, 1, "kuvateksti", 21,0);
 INSERT INTO kuvat VALUES(2, 1, "kuvateksti", 15,0);
 INSERT INTO kuvat VALUES(3, 2, "Kassu2:n kuva", 12,0);
 
-INSERT INTO kommentit VALUES( 1, 1, "Kassun oma kommentti");
-INSERT INTO kommentit VALUES( 1, 2, "Kassu2:n kommentti");
+INSERT INTO kommentit VALUES( 1, 1, "Kassun oma kommentti",NULL);
+INSERT INTO kommentit VALUES( 1, 2, "Kassu2:n kommentti",NULL);
 
-INSERT INTO tykkaykset VALUES( 2, 1, 1);
+INSERT INTO tykkaykset VALUES( 2, 1, 1,0);
